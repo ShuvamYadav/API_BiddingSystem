@@ -1,5 +1,6 @@
 package in.shuvam.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,16 @@ public class Users {
 	private String username;
 	private String password;
 	private String role;
+	@Column(columnDefinition="tinyint(1) default 1")
+	private int enabled=1;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getEnabled() {
+		return enabled;
 	}
 	public String getPassword() {
 		return password;
