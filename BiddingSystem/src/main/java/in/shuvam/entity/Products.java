@@ -14,6 +14,7 @@ public class Products {
 	private String description;
 	private double starting_bid;
 	private double current_bid;
+	private String current_bidder;
 
 	public int getId() {
 		return id;
@@ -53,6 +54,14 @@ public class Products {
 
 	public void setStarting_bid(double starting_bid) {
 		this.starting_bid = starting_bid;
+	}
+
+	public String getCurrent_bidder() {
+		return current_bidder;
+	}
+
+	public void setCurrent_bidder(String current_bidder) {
+		this.current_bidder = current_bidder;
 	}
 
 }

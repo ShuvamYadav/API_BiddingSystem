@@ -38,9 +38,7 @@ public class ProductService {
 	}
 
 	public Products setBid(int id, double bid) throws Exception {
-		Products p = repo.findById(id).orElse(null);
-		if (p == null)
-			throw new ProductNotFound();
+		Products p = repo.findById(id).orElseThrow(()-> new ProductNotFound());
 		if (bid > p.getCurrent_bid()) {
 			p.setCurrent_bid(bid);
 			return repo.save(p);

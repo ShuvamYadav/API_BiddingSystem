@@ -1,8 +1,10 @@
 package in.shuvam.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,8 +35,6 @@ public class ProductController {
 
 	@GetMapping("/{id}")
 	public Products getProduct(@PathVariable int id) {
-		if (service.getProduct(id) == null)
-			throw new ProductNotFound();
 		return service.getProduct(id);
 	}
 
@@ -44,7 +44,9 @@ public class ProductController {
 	}
 
 	@PostMapping("/{id}/bid/{bid}")
-	public Products setBid(@PathVariable int id, @PathVariable double bid) throws Exception {
+	public Products setBid(@PathVariable int id, @PathVariable double bid,Principal principal) throws Exception {
+		Products p=service.getProduct(id);
+		p.setCurrent_bidder(principal.getName());
 		return service.setBid(id, bid);
 	}
 	@DeleteMapping("/{id}")
