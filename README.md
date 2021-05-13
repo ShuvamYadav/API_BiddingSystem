@@ -1,4 +1,4 @@
-# RestAPI_BiddingSystem
+# API_BiddingSystem
 This is a Spring boot application with two microservices that only uses REST API's to make a bidding system. 
 
 
