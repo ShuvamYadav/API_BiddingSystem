@@ -10,10 +10,10 @@ This is a Spring boot application with two microservices that only uses REST API
 
 ## General info
 
-There are two 'microservices' BiddingSystem and BiddingSystemUsers, the former one has all the endpoints related to the products which will be set for bid,
-the latter one is used to sign up and manage users. Both of them are run on different ports. 'Users' need to sign up to access any of the product related 
-endpoints. 'Admins' have the privilege to add other users as Admins and add products for bidding. There is role based 'authorization' and 'authentication' from database.
-Swagger 2 is used to document the API endpoints, you can see the documentation by visiting the 'swagger-ui.html' page. Postman is used to test the endpoints.
+There are two `microservices` BiddingSystem and BiddingSystemUsers, the former one has all the endpoints related to the products which will be set for bid,
+the latter one is used to sign up and manage users. Both of them are run on different ports. `Users` need to sign up to access any of the product related 
+endpoints. `Admins` have the privilege to add other users as Admins and add products for bidding. There is role based `authorization` and `authentication` from database.
+Swagger 2 is used to document the API endpoints, you can see the documentation by visiting the `swagger-ui.html` page. Postman is used to test the endpoints.
 
 
 ## Technologies
@@ -27,5 +27,8 @@ Swagger 2 is used to document the API endpoints, you can see the documentation b
 
 ## Setup
 
-Go to the 'root directory' of the project and open Command Prompt.
-Type 'mvn clean package' press enter and you should have an executable jar file in the directory.
+Go to the `root directory` of the project and open Command Prompt.
+
+Type `mvn clean package` press enter and you should have two executable jar file in the directory.
+
+Execute the jar file having `.original` as a suffix using `java -jar $jarfile`
