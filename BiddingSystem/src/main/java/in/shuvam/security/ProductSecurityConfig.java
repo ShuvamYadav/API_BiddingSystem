@@ -29,7 +29,7 @@ public class ProductSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.POST,"/products/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.POST,"/products/{id}/bid/{bid}").hasRole("USER")
 		.antMatchers(HttpMethod.DELETE,"/products/**").hasRole("ADMIN")
-		.antMatchers(HttpMethod.GET,"/prodcuts/**").hasAnyRole("USER","ADMIN")
+		.antMatchers(HttpMethod.GET,"/products/**").hasAnyRole("USER","ADMIN")
 		.anyRequest().permitAll().and()
 		.httpBasic();
 	}

@@ -34,7 +34,7 @@ public class BiddingSystemApplication {
 	private ApiInfo apiDetails() {
 		return new ApiInfo(
 				"Bidding System API",
-				"REST API documentation to get started",
+				"REST API endpoints to perform CRUD operations on products and bid on them",
 				"0.0.1",
 				"Open Source",
 				new springfox.documentation.service.Contact("Shuvam Yadav", null,"shuvamroczz@gmai.com"),

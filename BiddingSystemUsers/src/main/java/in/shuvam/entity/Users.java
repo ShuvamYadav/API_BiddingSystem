@@ -8,6 +8,8 @@ import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Users {
 	@Id
@@ -17,6 +19,7 @@ public class Users {
 	private String password;
 	private String role;
 	@Column(columnDefinition="tinyint(1) default 1")
+	@JsonIgnore
 	private int enabled=1;
 	public int getId() {
 		return id;
