@@ -6,12 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.hateoas.RepresentationModel;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Users {
+public class Users extends RepresentationModel<Users>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

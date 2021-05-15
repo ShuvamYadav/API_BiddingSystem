@@ -30,7 +30,6 @@ public class BiddingSystemApplication {
 				.build()
 				.apiInfo(apiDetails());
 	}
-	
 	private ApiInfo apiDetails() {
 		return new ApiInfo(
 				"Bidding System API",

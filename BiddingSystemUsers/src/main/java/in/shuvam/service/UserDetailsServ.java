@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import in.shuvam.entity.Users;
 
+@SuppressWarnings("serial")
 public class UserDetailsServ implements UserDetails {
 	@Autowired
 	private Users user;
