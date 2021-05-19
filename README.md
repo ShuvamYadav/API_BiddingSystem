@@ -10,8 +10,7 @@ This is a Spring boot application with two microservices that only uses REST API
 
 ## General info
 
-There are three `microservices` BiddingSystem, BiddingSystemUsers and BiddingSystemgateway,the firts one has all the endpoints related to the products which will be set for bid,
-the second one is used to sign up and manage users and the last one is the common gateway to call both the microservices. Both of them are run on different ports. `Users` need to sign up to access any of the product related endpoints. `Admins` have the privilege to add other users as Admins and add products for bidding. There is role based `authorization` and `authentication` from database.
+There are three `microservices` BiddingSystem, BiddingSystemUsers and BiddingSystemgateway, the first one has all the endpoints related to the products which will be set for bid, the second one is used to sign up and manage users and the last one is the common gateway to call both the microservices. Both of them are run on different ports. `Users` need to sign up to access any of the product related endpoints. `Admins` have the privilege to add other users as Admins and add products for bidding. There is role based `authorization` and `authentication` from database.
 Swagger 2 is used to document the API endpoints, you can see the documentation by visiting the `swagger-ui.html` page. Postman is used to test the endpoints.
 
 
