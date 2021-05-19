@@ -21,40 +21,40 @@ import in.shuvam.repo.UsersRepo;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/system")
+@RequestMapping("/users")
 public class UsersController {
 	@Autowired
 	private UsersRepo repo;
 	private Link link= WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UsersController.class).getUsers()).withRel("Get all Users");
 	private Users u;
-	@PostMapping("/signUp")
+	@PostMapping("/signup")
 	@ApiOperation(value="Sign up as User")
 	public Users addUser(@RequestBody Users user) throws Exception {
 		if(user.getRole().equals("ROLE_ADMIN"))
-			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE,"You cannot sign up as Admin.\nTry contacting support.");
+			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE,"You cannot sign up as Admin.Try contacting support.");
 		else
 		return repo.save(user);
 	}
-	@GetMapping("/getUsers")
+	@GetMapping("/getall")
 	@ApiOperation(value="Get list of users and admins")
 	public List<Users> getUsers(){
 		return repo.findAll();
 	}
-	@GetMapping("/getUsers/{id}")
+	@GetMapping("/getusers/{id}")
 	@ApiOperation(value="Get user by id")
 	public Users getUser(@PathVariable int id) {	
 		u= repo.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"No user found with that id"));
 		return u.add(link);
 		
 	}
-	@DeleteMapping("/getUsers/{id}")
+	@DeleteMapping("/getusers/{id}")
 	@ApiOperation(value="Delete user by id")
 	public ResponseEntity<Object> delete(@PathVariable int id) {
 		repo.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"No user found with that id"));
 		repo.deleteById(id);
 		return new ResponseEntity<Object>("User deleted",HttpStatus.OK);
 	}
-	@PostMapping("/addAdmin")
+	@PostMapping("/addadmin")
 	@ApiOperation(value="Add user with admin role")
 	public Users addAdmin(@RequestBody Users user) {
 		u= repo.save(user);

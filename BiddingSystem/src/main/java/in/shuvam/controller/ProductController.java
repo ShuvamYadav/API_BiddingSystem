@@ -32,7 +32,7 @@ public class ProductController {
 		return p.add(link);
 	}
 
-	@PostMapping("/addProducts")
+	@PostMapping("/addproducts")
 	@ApiOperation(value="Add List of products")
 	public List<Products> addProducts(@RequestBody List<Products> product) {
 		List<Products> p= service.newProducts(product);

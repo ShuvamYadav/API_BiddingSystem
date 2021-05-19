@@ -31,10 +31,10 @@ public class UsersSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.POST,"/system/addAdmin").hasRole("ADMIN")
-		.antMatchers(HttpMethod.GET,"/system/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST,"/users/addadmin").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET,"/users/**").hasRole("ADMIN")
 		.antMatchers(HttpMethod.DELETE).hasRole("ADMIN")
-		.antMatchers(HttpMethod.POST,"/system/signUp").permitAll()
+		.antMatchers(HttpMethod.POST,"/users/signup").permitAll()
 		.anyRequest().permitAll()
 		.and().httpBasic();
 	}
